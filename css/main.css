@@ -1,0 +1,123 @@
+#time, #start, #adding {
+    width:400px;
+    float: left;
+    margin: 10px;
+}
+.slidecont {
+    overflow: hidden;
+}
+#count_vklad{
+    float: left;
+    padding: 10px;
+
+}
+.result {
+    float: left;
+    padding: 10px;
+}
+
+#bars * {
+    -webkit-transition: all 0.2s linear;
+}
+
+
+#start_bar #bar_amount{
+    width: 121px;
+    height: 10px;
+    background: url(../images/bot_mid.jpg) repeat-y;
+
+}
+#start_bar #bar_added{
+    background: url(../images/headBg.png) repeat-y;
+	margin-left:8px;
+}
+
+#start_bar #top_sep{
+    width: 78px;
+    height: 27px;
+    background: url(../images/top2.jpg);
+	margin-left:6px;
+}
+#start_bar #mid_sep, #res_bar #mid_sep{
+    width: 74px;
+    height: 2px;
+    background: url(../images/mid.JPG) repeat-y;
+	margin-left:1px;
+}
+#start_bar #bot_sep{
+    width: 121px;
+    height: 10px;
+    background: url(../images/bot.jpg) repeat-y;
+}
+#res_bar #bar_amount{
+    width: 121px;
+    height: 10px;
+    background: #1c94c4;
+    background: url(../images/bot_mid.jpg) repeat-y;
+
+}
+#res_bar #bar_added{
+    width: 79px;
+    background: #e78f08;
+    background: url(../images/headBg.png) repeat-y;
+    margin-left:8px;
+}
+#res_bar #bar_percent{
+    width: 75px;
+    background: #000;
+    margin-left:8px;
+}
+#start_bar, #res_bar {
+    float:left;
+    padding:10px;
+}
+#bars #bot_sep {
+    background: url(../images/bot.jpg) no-repeat;
+    height: 20px;
+    width: 115px;
+}
+#res_bar #top_sep{
+	width: 78px;
+    height: 27px;
+    background: url(../images/top2.jpg);
+	margin-left:6px;
+}
+
+#count_vklad p, #gray{
+color:#414141;
+font:14px Arial;
+margin-left:20px;
+}
+#count_vklad{
+margin-left:100px;
+}
+.slidecont input{
+margin-left:15px;
+border:0;
+}
+#bars p{
+color:#414141;
+font:14px Arial;
+}
+
+#val, #val1{
+color:#C4C15C;
+font:18px Arial;
+}
+#val {margin-left:150px;}
+.result {height:400px;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

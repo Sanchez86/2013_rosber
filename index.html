@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="css/ui-lightness/ui.css" />
+        <link rel="stylesheet" href="css/main.css" />
+        <script src="js/jquery.js"></script>
+        <script src="js/jquery-ui.js"></script>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+        <script>
+            function recount(){
+                var start = parseInt($( "#start_input" ).val());
+                var time = parseInt($( "#time_input" ).val());
+                var adding = parseInt($( "#adding_input" ).val());
+                var res = start + time*adding;
+				
+				var start_amount = start/100000;
+				var start_added = time*adding/100000;
+				
+				var res_amount = res/100000;
+				var res_percent = res*0.015/100000;
+				var res_added = res*0.2/100000;
+				
+				
+						var t = 0; 
+		for (var i = 1; i < time + 1; i++) {
+			if (i == 1) {
+				t = start + start * 21.5 / 100 / 12;
+				
+			} else {
+				t = t + adding;
+				t = t + t * 21.5 / 100 / 12;
+			}
+			var summary = t;
+		}
+		var start_h = 27 + start_amount + start_added  + 2 + 20;
+		var res_h = res_amount + res_percent +res_added;
+		
+		var q1 = 268 - start_h;
+		var q2 = 209 - res_h;
+		console.log(q1);
+		console.log(q2);
+		
+		$("#start_bar").css('margin-top',  q1 + 'px');
+		$("#res_bar").css('margin-top', q2 - time + 'px');
+				
+        $("#start_bar #bar_amount").css('height', start_amount + 'px');
+        $("#start_bar #bar_added").css('height', start_added + 'px');
+			
+			var count = 0;
+				for (var i = 1; i < time + 1; i++) {
+							if (i == 1) {
+				count = start;
+				} else {
+				count = adding * (i-1) + start;
+				}
+			}
+			
+                $("#res_bar #bar_amount").css('height', time + res_amount   + 'px');
+                $("#res_bar #bar_percent").css('height', res_percent +10 + 'px');
+                $("#res_bar #bar_added").css('height', res_added + 'px');
+                $('.result #val').html(Math.round(summary) + ' р');
+				$('.result #val1').html(Math.round(count) + ' р');
+				
+            }
+            $(document).ready(function(){
+                $( "#start" ).slider({ value:10000, min:10000, max:10000000, step:10000,change:recount, range:"min",slide: function( event, ui ) { $( "#start_input" ).val(ui.value ); }});
+                $( "#start_input" ).val($( "#start" ).slider( "value" ) );
+                $( "#time" ).slider({value:1, min:3, max:36, step:3,change:recount, range:"min", slide: function( event, ui ) { $( "#time_input" ).val(ui.value ); }});
+                $( "#time_input" ).val($( "#time" ).slider( "value" ) );
+                $( "#adding" ).slider({value:0,min:0,max:100000,step: 1000,change:recount, range:"min",slide: function( event, ui ) {$( "#adding_input" ).val(ui.value );}});
+                $( "#adding_input" ).val($( "#adding " ).slider( "value" ) );
+				recount();
+            })
+        </script>
+    </head>
+    <body>
+	<div>
+        <form id="count_vklad">
+			<div id="checkbox">
+				<span id="gray">ПРИУМНОЖИТЬ</span>
+            </div>
+            <div class="slidecont">
+                <div id="start"></div>
+                <input type="text" id="start_input">
+            </div>
+            <div class="slidecont">
+			<p>ЗА ВРЕМЯ</p>
+                <div id="time"></div>
+                <input type="text" id="time_input">
+            </div>
+            <div class="slidecont">
+			<p>ЕЖЕМЕСЯЧНОЕ ПОПОЛНЕНИЕ ВКЛАДА НА</p>
+                <div id="adding"></div>
+                <input type="text" id="adding_input">
+            </div>
+        </form>
+        <div class="result">
+			<div id="bars">
+                <div id="start_bar">
+					<p>&nbsp ВЛОЖИЛ</p>
+				    <div id="top_sep"></div>
+                    <div id="bar_added"></div>
+					<div id="mid_sep"></div>
+                    <div id="bar_amount"></div>
+					<div id="bot_sep"></div>
+					<div id='val1'></div>
+                </div>
+                <div id="res_bar">
+					<div id="text"><p>ВЫ ПОЛУЧИТЕ:</p> </div>
+					<div id="top_sep"></div>
+                    <div id="bar_added"></div>
+					<div id="mid_sep"></div>
+                    <div id="bar_percent"></div>
+					<div id="mid_sep"></div>
+                    <div id="bar_amount"></div>
+					<div id="bot_sep"></div>
+                </div>
+            </div>
+            <div id="res_money">
+						<div id='val'></div>
+					</div>
+        </div>
+	</div>	
+    </body>
+</html>
